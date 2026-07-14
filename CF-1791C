@@ -1,0 +1,33 @@
+800 rated
+
+Code :-
+
+import java.util.*;
+
+public class CPrependAndAppend{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            String s = sc.next();
+
+            if(n==0) {
+                ans.append(0).append("\n");
+                continue;
+            }
+
+            int i=0; int j=n-1;
+
+            while(i<j && s.charAt(i)!=s.charAt(j)){
+                i++; j--;
+            }
+
+            ans.append(j-i+1).append("\n");
+        }
+        System.out.println(ans);
+    }
+}
