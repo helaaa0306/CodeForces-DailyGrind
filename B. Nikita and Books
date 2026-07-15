@@ -1,0 +1,29 @@
+Div. 3 contest B
+
+import java.util.*;
+ 
+public class BNikitaAndBooks{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            
+            long prefix = 0;
+            boolean ok = true;
+ 
+            for (int i = 1; i <= n; i++) {
+                long a = sc.nextLong();
+                prefix += a;
+                long need = (long) i * (i + 1) / 2;
+                if (prefix < need) ok = false;
+            }
+ 
+            ans.append(ok ? "YES" : "NO").append("\n");
+        }
+        System.out.println(ans);
+    }
+}
