@@ -1,0 +1,41 @@
+Mathematical Analysis was needed 
+Learned abt outer breaking of loop 
+
+Code :- 
+
+import java.util.*;
+ 
+public class AServalAndMochaSArray{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            int[] arr = new int[n];
+ 
+            for(int i=0; i<n;i++) arr[i] = sc.nextInt();
+ 
+            boolean found = false;
+ 
+            outer:
+            for(int i=0; i<n && !found;i++){
+                for(int j=i+1; j<n; j++){
+                    if(gcd(arr[i], arr[j])<=2){
+                        found = true;
+                        break outer;
+                    }
+                }
+            }
+ 
+            ans.append(found ? "Yes" : "No").append("\n");
+        }
+        System.out.println(ans);
+    }
+ 
+    static int gcd(int a, int b){
+        return b==0 ? a : gcd(b, a%b);
+    }
+}
