@@ -1,0 +1,39 @@
+Div. 3 contest 
+
+import java.util.*;
+ 
+public class AIskanderAndDrawings{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            String s = sc.next();
+ 
+            int i=0; int cnt=0; int max=0; int res=0;
+            while(i<n){
+                char ch = s.charAt(i);
+                if(ch=='*'){
+                    max = Math.max(max, cnt);
+                    cnt=0;
+                }else{
+                    cnt++;
+                }
+                i++;
+            }
+            max = Math.max(max, cnt);
+ 
+            if(max%2!=0){
+                res = max/2 +1;
+            }else{
+                res = max/2;
+            }
+ 
+            ans.append(res).append("\n");
+        }
+        System.out.println(ans);
+    }
+}
