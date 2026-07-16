@@ -1,0 +1,57 @@
+Just think in every direction 
+
+Code :-
+
+import java.util.*;
+ 
+public class AMakeItBeautiful{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            Integer[] arr = new Integer[n];
+ 
+            for(int i=0; i<n;i++) {
+                arr[i] = sc.nextInt();
+            }
+ 
+            Arrays.sort(arr, Collections.reverseOrder());
+ 
+            int i=0;
+            while(i<n && arr[0]==arr[1]){
+                int temp = arr[1];
+                arr[1] = arr[n-i-1];
+                arr[n-i-1] = temp;
+                i++;
+            }
+ 
+            int sum = arr[0]; boolean beautiful = true;
+            for (int j = 1; j < n; j++) {
+                if(sum==arr[j]){
+                    beautiful = false;
+                    break;
+                }
+                sum+=arr[j];
+            }
+ 
+            if(beautiful){
+                ans.append("YES").append("\n");
+ 
+                for(int j=0; j<n;j++) {
+                   ans.append(arr[j]).append(" ");
+                }
+                ans.append("\n");
+            }else{
+                ans.append("NO").append("\n");
+            }
+ 
+            
+ 
+        }
+        System.out.println(ans);
+    }
+}
