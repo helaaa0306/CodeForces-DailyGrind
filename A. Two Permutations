@@ -1,0 +1,27 @@
+Just work on logic and patterns 
+
+Code :-
+
+import java.util.*;
+ 
+public class ATwoPermutations{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt(), a = sc.nextInt(), b = sc.nextInt();
+ 
+            if(a==n && b==n){
+                ans.append("Yes").append("\n");
+            }else if(a+b<n-1){
+                ans.append("Yes").append("\n");
+            }else{
+                ans.append("No").append("\n");
+            }
+        }
+        System.out.println(ans);
+    }
+}
