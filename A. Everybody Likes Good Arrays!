@@ -1,0 +1,40 @@
+Use correct datatypes
+
+Code:-
+
+import java.util.*;
+ 
+public class AEverybodyLikesGoodArrays{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt();
+            ArrayList<Integer> arr = new ArrayList<>();
+ 
+            for(int i=0; i<n;i++) {
+                arr.add(sc.nextInt());
+            }
+ 
+            int cnt=0;
+            int i=0;
+ 
+            while(i<arr.size()-1){
+                int a = arr.get(i), b = arr.get(i+1);
+                if((a&1) == (b&1)){
+                    arr.set(i, a*b);
+                    arr.remove(i+1);
+                    cnt++;
+                }else{
+                    i++;
+                }
+            }
+ 
+            ans.append(cnt).append("\n");
+        }
+        System.out.println(ans);
+    }
+}
