@@ -1,0 +1,29 @@
+Analysis was right
+Learn to simplify ur analysis and tutn it into code 
+
+Code :-
+
+import java.util.*;
+ 
+public class AExtremelyRound{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            String s = sc.next();
+ 
+            int digits = s.length();
+            int first_digit = s.charAt(0)-'0';
+ 
+            int cnt = (digits-1)*9+first_digit;
+ 
+            ans.append(cnt).append("\n");
+ 
+ 
+        }
+        System.out.println(ans);
+    }
+}
