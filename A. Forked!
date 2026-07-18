@@ -1,0 +1,43 @@
+Learned to use Hashsets and their retained all method
+
+Code :-
+
+import java.util.*;
+ 
+public class AForked{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            long a = sc.nextLong(), b = sc.nextLong();
+            long xk = sc.nextLong(), yk = sc.nextLong();
+            long xq = sc.nextLong(), yq = sc.nextLong();
+ 
+            long[][] vecs = {
+                {a,b}, {a,-b}, {-a,b}, {-a,-b},
+                {b,a}, {b,-a}, {-b,a}, {-b,-a}
+            };
+ 
+            Set<String> king = new HashSet<>();
+            for(long[] v : vecs){
+                king.add((xk+v[0])+","+(yk+v[1]));
+            }
+ 
+            Set<String> queen = new HashSet<>();
+            for(long[] v : vecs){
+                queen.add((xq+v[0])+","+(yq+v[1]));
+            }
+ 
+            king.retainAll(queen);
+ 
+ 
+            ans.append(king.size()).append("\n");
+ 
+            
+        }
+        System.out.println(ans);
+    }
+}
