@@ -1,0 +1,47 @@
+Learned hashmaps 
+
+Code :-
+
+import java.util.*;
+ 
+public class BChemistry{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            int n = sc.nextInt(), k = sc.nextInt();
+ 
+            String s = sc.next();
+ 
+            HashMap<Character, Integer> count = new HashMap<>();
+ 
+            for(int i=0; i<n ;i++){
+                char ch = s.charAt(i);
+ 
+                if(count.containsKey(ch)){
+                    count.put(ch, count.get(ch)+1);
+                }
+                else{
+                    count.put(ch, 1);
+                }
+            }
+ 
+            int odd = 0;
+            for (int c : count.values()) {
+               if (c % 2 != 0) odd++;
+            }
+ 
+            boolean res = (odd - k <= 1);
+ 
+            if(res){
+                ans.append("YES\n");
+            }else{
+                ans.append("NO\n");
+            }
+        }
+        System.out.println(ans);
+    }
+}
