@@ -1,0 +1,30 @@
+Be aware about int overflow 
+
+Code :-
+
+import java.util.*;
+
+public class CVasilijeInCacak{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int t=sc.nextInt();
+        StringBuilder ans = new StringBuilder();
+        
+        while(t-->0){
+            long n = sc.nextLong(), k = sc.nextLong();
+            long x = sc.nextLong();
+
+            long maxSum = k*(2*n-k+1)/2;
+            long minSum = k*(k+1)/2;
+
+            if(x<=maxSum && x>=minSum){
+                ans.append("YES").append("\n");
+            }else{
+                ans.append("NO").append("\n");
+            }
+
+        }
+        System.out.println(ans);
+    }
+}
